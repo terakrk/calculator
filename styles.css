@@ -24,7 +24,12 @@ main {
     grid-template-columns: repeat(4, 1fr);
 }
 
-.display, .clear {
+.display {
+    background-color: #D4E2D4;
+    color: #002800;
+}
+
+.display, #clear {
     grid-column: span 4;
 }
 
@@ -37,4 +42,22 @@ main {
 
 .number, .operator, .dot, .equals {
     width: 3.5rem;
+}
+
+.number, #dot {
+    background-color: #DBC4F0;
+}
+
+.operator {
+    background-color: #FFCACC;
+}
+
+#equals {
+background-color: rebeccapurple;
+color: white;
+}
+
+#clear {
+    background-color: #FAF3F0;
+    color: blue;
 }
