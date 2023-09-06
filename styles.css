@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.container {
+    width: 30rem;
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.display, .clear {
+    grid-column: span 4;
+}
+
+.display {
+    font-size: 3rem;
+    height: 4rem;
+    border: 2px solid mistyrose;
+    border-radius: 12px;
+}
+
+.number, .operator, .dot, .equals {
+    width: 3.5rem;
+}
