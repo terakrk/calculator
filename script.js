@@ -3,6 +3,13 @@
 let firstNumber = 0;
 let secondNumber = 0;
 const operators = ['+', '-', '*', '/'];
+const display = document.querySelector('#display');
+const numbers = document.querySelectorAll('.number');
+numbers.forEach(number => {
+    number.addEventListener('click', e => {
+        console.log(e.target.id);
+    })
+})
 
 
 const add = function(num1, num2) {

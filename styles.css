@@ -24,27 +24,25 @@ main {
     grid-template-columns: repeat(4, 1fr);
 }
 
-.display {
-    background-color: #D4E2D4;
-    color: #002800;
-}
-
-.display, #clear {
+#display, #clear {
     grid-column: span 4;
 }
 
-.display {
+#display {
     font-size: 3rem;
     height: 4rem;
     border: 2px solid mistyrose;
     border-radius: 12px;
+    background-color: #D4E2D4;
+    color: #002800;
+    text-align: center;
 }
 
 .number, .operator, .dot, .equals {
     width: 3.5rem;
 }
 
-.number, #dot {
+.number, .dot {
     background-color: #DBC4F0;
 }
 
@@ -52,7 +50,7 @@ main {
     background-color: #FFCACC;
 }
 
-#equals {
+.equals {
 background-color: rebeccapurple;
 color: white;
 }
