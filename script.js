@@ -2,17 +2,11 @@
 
 const display = document.querySelector('#display');
 
-const firstNumber = document.createElement('span');
-firstNumber.classList.add('first-number');
-display.appendChild(firstNumber);
+const firstNumber = document.querySelector('#first-number');
 
-const secondNumber = document.createElement('span');
-    secondNumber.classList.add('second-number');
-    display.appendChild(secondNumber);
+const secondNumber = document.querySelector('#second-number');
 
-const arithmeticOperator = document.createElement('span');
-    arithmeticOperator.classList.add('operator');
-    display.appendChild(arithmeticOperator);
+const arithmeticOperator = document.querySelector('#arithmetic-operator');
     
 const numbers = document.querySelectorAll('.number');
     numbers.forEach(number => {
