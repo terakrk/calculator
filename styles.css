@@ -28,6 +28,11 @@ main {
     grid-column: span 4;
 }
 
+span {
+    font-family: 'Rubik Mono', sans-serif;
+    font-size: 2.5rem;
+}
+
 #display {
     font-size: 3rem;
     height: 4rem;
