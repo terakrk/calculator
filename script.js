@@ -1,6 +1,9 @@
 'use strict';
 
-const display = document.querySelector('#display');
+let num1 = 0;
+let num2 = 0;
+
+const numberDisplay = document.querySelector('#number-display');
 
 const firstNumber = document.querySelector('#first-number');
 
@@ -12,17 +15,22 @@ const numbers = document.querySelectorAll('.number');
     numbers.forEach(number => {
     number.addEventListener('click', e => {
         if (!arithmeticOperator) {
-            firstNumber.textContent = e.target.id;
+            num1 === e.target.id;
+            numberDisplay.textContent += e.target.id;
         } else {
-            secondNumber.textContent = e.target.id;
+            num2 === e.target.id;
+            numberDisplay.textContent += e.target.id;
         }
-    })
+    });
 })
 
 const operators = document.querySelectorAll('.operator');
     operators.forEach(operator => {
         operator.addEventListener('click', e => {
-           arithmeticOperator.textContent = e.target.id;
+            arithmeticOperator += e.target.id;
+            operator += e.target.id;
+            numberDisplay.textContent += e.target.id;
+
         })
     })
 
@@ -71,13 +79,11 @@ const operate = (num1, operator, num2) => {
     }
    };
 
-   const clearDisplay = function() {
-        const junk = document.querySelectorAll('span');
-        const junkArray= [...junk];
-        junkArray.forEach(span => {
-            span.remove();
-        });
+const clearDisplay = function() {
+    const junk = document.querySelector('#number-display');
+    junk.remove();
     };
+
    const equals = document.querySelector('.equals');
    equals.addEventListener('click', operate);
 
