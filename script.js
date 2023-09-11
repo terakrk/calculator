@@ -1,36 +1,35 @@
 'use strict';
+let num1;
+let num2;
+let mathOperator;
 
-let num1 = 0;
-let num2 = 0;
 
 const numberDisplay = document.querySelector('#number-display');
 
-const firstNumber = document.querySelector('#first-number');
+//const firstNumber = document.querySelector('#first-number');
 
-const secondNumber = document.querySelector('#second-number');
+//const secondNumber = document.querySelector('#second-number');
 
-const arithmeticOperator = document.querySelector('#arithmetic-operator');
+//const arithmeticOperator = document.querySelector('#arithmetic-operator');
     
 const numbers = document.querySelectorAll('.number');
     numbers.forEach(number => {
     number.addEventListener('click', e => {
-        if (!arithmeticOperator) {
-            num1 === e.target.id;
-            numberDisplay.textContent += e.target.id;
-        } else {
-            num2 === e.target.id;
-            numberDisplay.textContent += e.target.id;
+      numberDisplay.textContent += e.target.id;
+      if (mathOperator == null) {
+         num1 = e.target.id;
+      } else {
+        num2 = e.target.id;
+      }
+        })
+       
         }
-    });
-})
-
+    );
 const operators = document.querySelectorAll('.operator');
     operators.forEach(operator => {
         operator.addEventListener('click', e => {
-            arithmeticOperator += e.target.id;
-            operator += e.target.id;
             numberDisplay.textContent += e.target.id;
-
+            mathOperator = e.target.id;
         })
     })
 
