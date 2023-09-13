@@ -1,8 +1,9 @@
 'use strict';
-let num1 = 0;
-let num2 = 0;
+let firstNumber = 0;
+let secondNumber = 0;
 let mathOperator = '';
-let num3 = 0;
+let answer = 0;
+
 
 
 const numberDisplay = document.querySelector('#number-display');
@@ -18,9 +19,9 @@ const numbers = document.querySelectorAll('.number');
     number.addEventListener('click', e => {
       numberDisplay.textContent += e.target.id;
       if (mathOperator== null) {
-         num1 = e.target.id;
+        firstNumber = e.target.id;
       } else {
-        num2 = e.target.id;
+        secondNumber = e.target.id;
       }
         })
        
@@ -31,47 +32,50 @@ const operators = document.querySelectorAll('.operator');
        operator.addEventListener('click', e => {
             numberDisplay.textContent += e.target.id;
             operator = e.target.id;
+            mathOperator = operator;
         })
     })
 
 const clear = document.querySelector('#clear');
 const add = function(num1, num2) {
-    let num3 = num1 + num2;
-   numberDisplay.textContent = num3;
-    return num3;
+    answer = num1 + num2;
+   numberDisplay.textContent = answer;
+    return answer;
 }
 
 const subtract = function(num1, num2) {
     if (num2 > num1) {
-        let num3 = num2 - num1;
-        numberDisplay.textContent = num3;
-        return num3;
+        answer = num2 - num1;
+        numberDisplay.textContent = answer;
+        return answer;
     } else {
-        let num3 = num1 - num2;
-        numberDisplay.textContent = num3;
-        return num3;
+        let answer = num1 - num2;
+        numberDisplay.textContent = answer;
+        return answer;
     }
 }
 
 const multiply = function(num1, num2) {
-    let num3 = num1 * num2;
-    numberDisplay.textContent = num3;
-    return num3;
+    let answer = num1 * num2;
+    numberDisplay.textContent = answer;
+    return answer;
 }
 
 const divide = function(num1, num2) {
     if (num2 > num1) {
-        let num3 =  num2 / num1;
-        numberDisplay.textContent = num3;
-        return num3;
+        let answer =  num2 / num1;
+        numberDisplay.textContent = answer;
+        return answer;
     } else {
         let num3 = num1 / num2;
-        numberDisplay.textContent = num3;
-        return num3;
+        numberDisplay.textContent = answer;
+        return answer;
     }
 }
 
 const operate = (num1, mathOperator, num2) => {
+    firstNumber = num1;
+    secondNumber = num2;
    if (mathOperator === '+') {
     return add(num1, num2);
    } else if (mathOperator === '-') {
@@ -91,5 +95,7 @@ const clearDisplay = function() {
     };
 
    const equals = document.querySelector('.equals');
-   equals.addEventListener('click', operate());
+   equals.addEventListener('click', function () {
+    operate(firstNumber, mathOperator, secondNumber);
+   });
    clear.addEventListener('click', clearDisplay);
