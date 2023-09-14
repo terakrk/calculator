@@ -1,6 +1,8 @@
 'use strict';
 let firstNumber = 0;
 let secondNumber = 0;
+let num1 = 0;
+let num2 = 0;
 let mathOperator = '';
 let answer = 0;
 
@@ -14,14 +16,14 @@ const numberDisplay = document.querySelector('#number-display');
 
 //const arithmeticOperator = document.querySelector('#arithmetic-operator');
     
-const numbers = document.querySelectorAll('.number');
+const numbers = Array.from(document.querySelectorAll('.number'));
     numbers.forEach(number => {
     number.addEventListener('click', e => {
-      numberDisplay.textContent += e.target.id;
+      numberDisplay.textContent+= e.target.id;
       if (mathOperator== null) {
         firstNumber = e.target.id;
       } else {
-        secondNumber = e.target.id;
+       secondNumber = e.target.id;
       }
         })
        
@@ -38,9 +40,8 @@ const operators = document.querySelectorAll('.operator');
 
 const clear = document.querySelector('#clear');
 const add = function(num1, num2) {
-    answer = num1 + num2;
+    answer = parseInt(num1) + parseInt(num2);
    numberDisplay.textContent = answer;
-    return answer;
 }
 
 const subtract = function(num1, num2) {
@@ -73,16 +74,17 @@ const divide = function(num1, num2) {
     }
 }
 
-const operate = (num1, mathOperator, num2) => {
+const operate = (num1, operator, num2) => {
     firstNumber = num1;
     secondNumber = num2;
-   if (mathOperator === '+') {
+    mathOperator = operator;
+   if (operator === '+') {
     return add(num1, num2);
-   } else if (mathOperator === '-') {
+   } else if (operator === '-') {
     return subtract(num1, num2);
-   } else if (mathOperator === '*') {
+   } else if (operator === '*') {
     return multiply(num1, num2); 
-    } else if (mathOperator === '/') {
+    } else if (operator === '/') {
         return divide(num1, num2);
     } else {
         return 'Invalid Operation';
