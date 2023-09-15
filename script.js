@@ -1,10 +1,9 @@
 'use strict';
-let firstNumber = 0;
-let secondNumber = 0;
-let num1 = 0;
-let num2 = 0;
+let firstNumber = parseInt();
+let secondNumber = parseInt();
+let answer = parseInt();
 let mathOperator = '';
-let answer = 0;
+
 
 
 
@@ -19,11 +18,11 @@ const numberDisplay = document.querySelector('#number-display');
 const numbers = Array.from(document.querySelectorAll('.number'));
     numbers.forEach(number => {
     number.addEventListener('click', e => {
-      numberDisplay.textContent+= e.target.id;
-      if (mathOperator== null) {
-        firstNumber = e.target.id;
+     numberDisplay.textContent+= parseInt(e.target.id);
+      if (!mathOperator) {
+       firstNumber = parseInt(e.target.id);
       } else {
-       secondNumber = e.target.id;
+       secondNumber = parseInt(e.target.id);
       }
         })
        
@@ -33,14 +32,13 @@ const operators = document.querySelectorAll('.operator');
     operators.forEach(operator => {
        operator.addEventListener('click', e => {
             numberDisplay.textContent += e.target.id;
-            operator = e.target.id;
-            mathOperator = operator;
+            mathOperator = e.target.id;
         })
     })
 
 const clear = document.querySelector('#clear');
 const add = function(num1, num2) {
-    answer = parseInt(num1) + parseInt(num2);
+    answer = num1 + num2;
    numberDisplay.textContent = answer;
 }
 
@@ -68,17 +66,15 @@ const divide = function(num1, num2) {
         numberDisplay.textContent = answer;
         return answer;
     } else {
-        let num3 = num1 / num2;
+        let answer = num1 / num2;
         numberDisplay.textContent = answer;
         return answer;
     }
 }
 
-const operate = (num1, operator, num2) => {
-    firstNumber = num1;
-    secondNumber = num2;
-    mathOperator = operator;
-   if (operator === '+') {
+const operate = (operator, num1, num2) => {
+    operator = mathOperator;
+   if (mathOperator === '+') {
     return add(num1, num2);
    } else if (operator === '-') {
     return subtract(num1, num2);
@@ -98,6 +94,6 @@ const clearDisplay = function() {
 
    const equals = document.querySelector('.equals');
    equals.addEventListener('click', function () {
-    operate(firstNumber, mathOperator, secondNumber);
+    operate(mathOperator, firstNumber, secondNumber);
    });
    clear.addEventListener('click', clearDisplay);
