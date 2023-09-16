@@ -1,6 +1,7 @@
 'use strict';
-let firstNumber = parseInt();
-let secondNumber = parseInt();
+let num = 0;
+let firstNumber = [];
+let secondNumber = [];
 let answer = parseInt();
 let mathOperator = '';
 
@@ -19,10 +20,11 @@ const numbers = Array.from(document.querySelectorAll('.number'));
     numbers.forEach(number => {
     number.addEventListener('click', e => {
      numberDisplay.textContent+= parseInt(e.target.id);
+     num = e.target.id;
       if (!mathOperator) {
-       firstNumber = parseInt(e.target.id);
+      firstNumber = parseInt(num);
       } else {
-       secondNumber = parseInt(e.target.id);
+       secondNumber = parseInt(num);
       }
         })
        
@@ -88,8 +90,8 @@ const operate = (operator, num1, num2) => {
    };
 
 const clearDisplay = function() {
-    const junk = document.querySelector('#number-display');
-    junk.remove();
+    const junk = document.querySelector('#number-display')
+    junk.textContent= '';
     };
 
    const equals = document.querySelector('.equals');
