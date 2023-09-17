@@ -40,37 +40,31 @@ const operators = document.querySelectorAll('.operator');
 
 const clear = document.querySelector('#clear');
 const add = function(num1, num2) {
-    answer = num1 + num2;
-   numberDisplay.textContent = answer;
+    num1 = numberDisplay.textContent;
+    num2 = numberDisplay.textContent;
+   numberDisplay.textContent = parseInt(num1) + parseInt(num2);
 }
 
 const subtract = function(num1, num2) {
+    num1 = numberDisplay.textContent;
     if (num2 > num1) {
-        answer = num2 - num1;
-        numberDisplay.textContent = answer;
-        return answer;
+        numberDisplay.textcontent = parseInt(num2) - parseInt(num1);
     } else {
-        let answer = num1 - num2;
-        numberDisplay.textContent = answer;
-        return answer;
+        numberDisplay.textContent = parseInt(num1) - parseInt(num2);
     }
 }
 
 const multiply = function(num1, num2) {
-    let answer = num1 * num2;
-    numberDisplay.textContent = answer;
-    return answer;
+    num1 = numberDisplay.textContent;
+    numberDisplay.textContent = (parseInt(num1) * parseInt(num2));
 }
 
 const divide = function(num1, num2) {
+    num1 = numberDisplay.textContent;
     if (num2 > num1) {
-        let answer =  num2 / num1;
-        numberDisplay.textContent = answer;
-        return answer;
+        numberDisplay.textContent = parseInt(num2) / parseInt(num1);
     } else {
-        let answer = num1 / num2;
-        numberDisplay.textContent = answer;
-        return answer;
+       numberDisplay.textContent = parseInt(num1) / parseInt(num2);
     }
 }
 
