@@ -1,8 +1,6 @@
 'use strict';
-let num = 0;
-let firstNumber = [];
-let secondNumber = [];
-let answer = parseInt();
+let firstNumber = '';
+let secondNumber = '';
 let mathOperator = '';
 
 
@@ -19,17 +17,14 @@ const numberDisplay = document.querySelector('#number-display');
 const numbers = Array.from(document.querySelectorAll('.number'));
     numbers.forEach(number => {
     number.addEventListener('click', e => {
-     numberDisplay.textContent+= parseInt(e.target.id);
-     num = e.target.id;
-      if (!mathOperator) {
-      firstNumber = parseInt(num);
-      } else {
-       secondNumber = parseInt(num);
-      }
-        })
-       
-        }
-    );
+        numberDisplay.textContent += e.target.id;
+    if (mathOperator === ''){
+        firstNumber += e.target.id;
+    } else {
+        secondNumber += e.target.id;
+    }
+});
+    });
 const operators = document.querySelectorAll('.operator');
     operators.forEach(operator => {
        operator.addEventListener('click', e => {
@@ -40,31 +35,34 @@ const operators = document.querySelectorAll('.operator');
 
 const clear = document.querySelector('#clear');
 const add = function(num1, num2) {
-    num1 = numberDisplay.textContent;
-    num2 = numberDisplay.textContent;
-   numberDisplay.textContent = parseInt(num1) + parseInt(num2);
+    num1 = parseInt(firstNumber);
+    num2 = parseInt(secondNumber);
+   numberDisplay.textContent = num1 + num2;
 }
 
 const subtract = function(num1, num2) {
-    num1 = numberDisplay.textContent;
+    num1 = parseInt(firstNumber);
+    num2 = parseInt(secondNumber);
     if (num2 > num1) {
-        numberDisplay.textcontent = parseInt(num2) - parseInt(num1);
+        numberDisplay.textcontent = num2 - num1;
     } else {
-        numberDisplay.textContent = parseInt(num1) - parseInt(num2);
+        numberDisplay.textContent = num1 - num2;
     }
 }
 
 const multiply = function(num1, num2) {
-    num1 = numberDisplay.textContent;
-    numberDisplay.textContent = (parseInt(num1) * parseInt(num2));
+    num1 = parseInt(firstNumber);
+    num2 = parseInt(secondNumber);
+    numberDisplay.textContent = num1 * num2;
 }
 
 const divide = function(num1, num2) {
-    num1 = numberDisplay.textContent;
+    num1 = parseInt(firstNumber);
+    num2 = parseInt(secondNumber);
     if (num2 > num1) {
-        numberDisplay.textContent = parseInt(num2) / parseInt(num1);
+        numberDisplay.textContent = num2 / num1;
     } else {
-       numberDisplay.textContent = parseInt(num1) / parseInt(num2);
+       numberDisplay.textContent = num1 / num2;
     }
 }
 
