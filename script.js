@@ -84,6 +84,9 @@ const operate = (operator, num1, num2) => {
 const clearDisplay = function() {
     const junk = document.querySelector('#number-display')
     junk.textContent= '';
+     firstNumber = '';
+     secondNumber = '';
+     mathOperator = '';
     };
 
    const equals = document.querySelector('.equals');
