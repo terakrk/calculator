@@ -2,6 +2,7 @@
 let firstNumber = '';
 let secondNumber = '';
 let mathOperator = '';
+let answer = Number();
 
 
 
@@ -18,7 +19,7 @@ const numbers = Array.from(document.querySelectorAll('.number'));
     numbers.forEach(number => {
     number.addEventListener('click', e => {
         numberDisplay.textContent += e.target.id;
-    if (mathOperator === ''){
+    if (!mathOperator){
         firstNumber += e.target.id;
     } else {
         secondNumber += e.target.id;
@@ -30,40 +31,51 @@ const operators = document.querySelectorAll('.operator');
        operator.addEventListener('click', e => {
             numberDisplay.textContent += e.target.id;
             mathOperator = e.target.id;
+            mathChain();
         })
     })
 
 const clear = document.querySelector('#clear');
 const add = function(num1, num2) {
-    num1 = parseInt(firstNumber);
-    num2 = parseInt(secondNumber);
+    num1 = parseFloat(firstNumber);
+    num2 = parseFloat(secondNumber);
    numberDisplay.textContent = num1 + num2;
+   answer = num1 + num2;
+   return answer;
 }
 
 const subtract = function(num1, num2) {
-    num1 = parseInt(firstNumber);
-    num2 = parseInt(secondNumber);
+    num1 = parseFloat(firstNumber);
+    num2 = parseFloat(secondNumber);
     if (num2 > num1) {
         numberDisplay.textcontent = num2 - num1;
+        answer = num2 - num1;
     } else {
         numberDisplay.textContent = num1 - num2;
+        answer = num1 - num2;
     }
+    return answer;
 }
 
 const multiply = function(num1, num2) {
-    num1 = parseInt(firstNumber);
-    num2 = parseInt(secondNumber);
+    num1 = parseFloat(firstNumber);
+    num2 = parseFloat(secondNumber);
     numberDisplay.textContent = num1 * num2;
+    answer = num1 * num2;
+    return answer;
 }
 
 const divide = function(num1, num2) {
-    num1 = parseInt(firstNumber);
-    num2 = parseInt(secondNumber);
+    num1 = parseFloat(firstNumber);
+    num2 = parseFloat(secondNumber);
     if (num2 > num1) {
         numberDisplay.textContent = num2 / num1;
+        answer = num2 / num1;
     } else {
        numberDisplay.textContent = num1 / num2;
+       answer = num1 / num2;
     }
+    return answer;
 }
 
 const operate = (operator, num1, num2) => {
@@ -87,6 +99,7 @@ const clearDisplay = function() {
      firstNumber = '';
      secondNumber = '';
      mathOperator = '';
+     answer = '';
     };
 
    const equals = document.querySelector('.equals');
@@ -94,3 +107,11 @@ const clearDisplay = function() {
     operate(mathOperator, firstNumber, secondNumber);
    });
    clear.addEventListener('click', clearDisplay);
+
+   function mathChain() {
+    if(!answer) {
+        return firstNumber;
+    } else {
+        return answer = firstNumber;
+    }
+   }
