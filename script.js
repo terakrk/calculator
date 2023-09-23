@@ -26,7 +26,7 @@ const numbers = Array.from(document.querySelectorAll('.number'));
     }
 });
     });
-const operators = document.querySelectorAll('.operator');
+const operators = Array.from(document.querySelectorAll('.operator'));
     operators.forEach(operator => {
        operator.addEventListener('click', e => {
             numberDisplay.textContent += e.target.id;
