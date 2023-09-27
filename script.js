@@ -23,7 +23,10 @@ const numbers = Array.from(document.querySelectorAll('.number'));
         firstNumber += e.target.id;
     } else {
         secondNumber += e.target.id;
+        document.getElementById('.').disabled = false;
     }
+        if(e.target.id ==='.') {
+    document.getElementById('.').disabled = true;
 });
     });
 const operators = Array.from(document.querySelectorAll('.operator'));
